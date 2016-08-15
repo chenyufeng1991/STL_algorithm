@@ -28,6 +28,7 @@ void CountVector();
 void CopyVector();
 void TransformVector();
 int SquareVector(int num);
+void GenerateVector();
 
 int main(int argc, const char * argv[])
 {
@@ -69,6 +70,9 @@ int main(int argc, const char * argv[])
 
     // transform
     TransformVector();
+
+    // generate
+    GenerateVector();
 
 
 
@@ -311,6 +315,13 @@ int SquareVector(int num)
     return num * num;
 }
 
+void GenerateVector()
+{
+    vector<int> myVector(6);
+    generate(myVector.begin(), myVector.end(), rand);
+    cout << "生成的随机序列为：";
+    PrintVector(myVector);
+}
 
 
 
