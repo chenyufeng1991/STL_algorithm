@@ -18,6 +18,7 @@ void SortAndReverse();
 void FindVector();
 void EqualVector();
 void MergeVector();
+void SwapObject();
 
 int main(int argc, const char * argv[])
 {
@@ -36,6 +37,8 @@ int main(int argc, const char * argv[])
     // merge
     MergeVector();
 
+    // swap
+    SwapObject();
 
 
 
@@ -159,6 +162,17 @@ void MergeVector()
     cout << "合并后的序列为：";
     PrintVector(myResult);
 }
+
+void SwapObject()
+{
+    int i = 2;
+    int j = 3;
+    swap(i, j);
+    cout << "i = " << i << ";j = " << j << endl;
+}
+
+
+
 
 
 
