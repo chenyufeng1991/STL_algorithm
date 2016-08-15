@@ -20,6 +20,7 @@ void EqualVector();
 void MergeVector();
 void SwapObject();
 void UniqueVector();
+void ReplaceVector();
 
 int main(int argc, const char * argv[])
 {
@@ -43,6 +44,10 @@ int main(int argc, const char * argv[])
 
     // unique
     UniqueVector();
+
+    // replace
+    ReplaceVector();
+
 
 
 
@@ -171,7 +176,10 @@ void SwapObject()
 {
     int i = 2;
     int j = 3;
+    cout << "交换之前两个数的值：";
+    cout << "i = " << i << ";j = " << j << endl;
     swap(i, j);
+    cout << "交换之后两个数的值：";
     cout << "i = " << i << ";j = " << j << endl;
 }
 
@@ -186,8 +194,27 @@ void UniqueVector()
     vector<int>::iterator iter = unique(vectorFromArray.begin(), vectorFromArray.end());
     vectorFromArray.erase(iter, vectorFromArray.end());
 
+    cout << "去重之后的序列：";
     PrintVector(vectorFromArray);
 }
+
+void ReplaceVector()
+{
+    int array[] = {2, 4, 6, 8, 9};
+    vector<int> myVector(array, array + sizeof(array) / sizeof(int));
+
+    cout << "替换之前的序列：";
+    PrintVector(myVector);
+    replace(myVector.begin(), myVector.end(), 8, 888);
+    cout << "替换之后的序列：";
+    PrintVector(myVector);
+}
+
+
+
+
+
+
 
 
 
