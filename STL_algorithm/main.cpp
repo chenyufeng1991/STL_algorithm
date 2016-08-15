@@ -29,6 +29,7 @@ void CopyVector();
 void TransformVector();
 int SquareVector(int num);
 void GenerateVector();
+void MoveVector();
 
 void Heap();
 
@@ -78,6 +79,8 @@ int main(int argc, const char * argv[])
 
     // heap
     Heap();
+
+    MoveVector();
 
 
 
@@ -354,6 +357,18 @@ void Heap()
     sort_heap(myVector.begin(), myVector.end());
     PrintVector(myVector);
 }
+
+void MoveVector()
+{
+    int arr[] = {4, 6, 8, 2, 0};
+    vector<int> myVector(arr, arr + sizeof(arr) / sizeof(int));
+
+    vector<int> myVectorMove(10); // 初始值为0
+    move(myVector.begin(), myVector.end(), myVectorMove.begin() + 5);
+    cout << "移动后的序列为：";
+    PrintVector(myVectorMove);
+}
+
 
 
 
