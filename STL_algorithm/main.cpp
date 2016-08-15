@@ -7,9 +7,27 @@
 //
 
 #include <iostream>
+#include <algorithm>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+
+int main(int argc, const char * argv[])
+{
+    // max，min
+    int maxI = 3;
+    int maxJ = 4;
+    cout << "较大值为：" << max(maxI,maxJ) << endl;
+    cout << "较小值为：" << min(maxI,maxJ) << endl;
+
+
+
+
+
+
     return 0;
 }
+
+
+
+
+
