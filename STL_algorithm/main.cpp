@@ -24,6 +24,7 @@ void ReplaceVector();
 void RemoveVector();
 void ForEach();
 void PrintElement(int &ele);
+void CountVector();
 
 int main(int argc, const char * argv[])
 {
@@ -56,6 +57,9 @@ int main(int argc, const char * argv[])
 
     // for-each
     ForEach();
+
+    // count
+    CountVector();
 
 
 
@@ -256,6 +260,17 @@ void PrintElement(int &ele)
 {
     ele = ele * ele;
 }
+
+void CountVector()
+{
+    int array[] = {4, 4, 6, 9, 0, 0, 0};
+    vector<int> myVector(array, array + sizeof(array) / sizeof(int));
+
+    // 这里默认返回的是long
+    long num = count(myVector.begin(), myVector.end(), 0);
+    cout << "某个值出现的次数为：" << num << endl;
+}
+
 
 
 
