@@ -17,6 +17,7 @@ void MaxAndMin();
 void SortAndReverse();
 void FindVector();
 void EqualVector();
+void MergeVector();
 
 int main(int argc, const char * argv[])
 {
@@ -31,6 +32,9 @@ int main(int argc, const char * argv[])
 
     // equal
     EqualVector();
+
+    // merge
+    MergeVector();
 
 
 
@@ -130,6 +134,31 @@ void EqualVector()
     }
 }
 
+void MergeVector()
+{
+    vector<int> myVector1;
+    myVector1.push_back(1);
+    myVector1.push_back(5);
+    myVector1.push_back(7);
+    myVector1.push_back(9);
+
+    vector<int> myVector2;
+    myVector2.push_back(2);
+    myVector2.push_back(3);
+    myVector2.push_back(4);
+    myVector2.push_back(5);
+
+    // 需要在合并前排序
+    sort(myVector1.begin(), myVector1.end());
+    sort(myVector2.begin(), myVector2.end());
+
+    // 需要指定结果集的大小
+    vector<int> myResult(8);
+    merge(myVector1.begin(), myVector1.end(), myVector2.begin(), myVector2.end(), myResult.begin());
+
+    cout << "合并后的序列为：";
+    PrintVector(myResult);
+}
 
 
 
