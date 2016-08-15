@@ -31,6 +31,7 @@ int SquareVector(int num);
 void GenerateVector();
 void MoveVector();
 void FillVector();
+void RotateVector();
 
 void Heap();
 
@@ -86,6 +87,9 @@ int main(int argc, const char * argv[])
 
     // fill
     FillVector();
+
+    // rotate
+    RotateVector();
 
 
 
@@ -389,6 +393,17 @@ void FillVector()
     PrintVector(myVector);
 }
 
+// rorate函数将[first, middle)内的元素和[middle, last)内的元素互换，middle所指元素成为容器的第一个元素。
+void RotateVector()
+{
+    vector<int> myVector{4, 5, 0, 1, 9};
+
+    cout << "旋转前的序列为：";
+    PrintVector(myVector);
+    rotate(myVector.begin(), myVector.begin() + 3, myVector.end());
+    cout << "旋转后的序列为：";
+    PrintVector(myVector);
+}
 
 
 
