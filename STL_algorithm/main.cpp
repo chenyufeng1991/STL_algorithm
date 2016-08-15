@@ -8,8 +8,11 @@
 
 #include <iostream>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
+
+void PrintVector(vector<int> v);
 
 int main(int argc, const char * argv[])
 {
@@ -19,6 +22,22 @@ int main(int argc, const char * argv[])
     cout << "较大值为：" << max(maxI,maxJ) << endl;
     cout << "较小值为：" << min(maxI,maxJ) << endl;
 
+    //sort,reverse
+    vector<int> myVector;
+    myVector.push_back(2);
+    myVector.push_back(9);
+    myVector.push_back(1);
+    myVector.push_back(0);
+    myVector.push_back(7);
+
+    PrintVector(myVector);
+    sort(myVector.begin(), myVector.end());
+    PrintVector(myVector);
+
+    reverse(myVector.begin(), myVector.end());
+    PrintVector(myVector);
+
+
 
 
 
@@ -26,6 +45,17 @@ int main(int argc, const char * argv[])
 
     return 0;
 }
+
+void PrintVector(vector<int> v)
+{
+    vector<int>::iterator vIterator;
+    for (vIterator = v.begin(); vIterator != v.end(); vIterator++)
+    {
+        cout << *vIterator << " ";
+    }
+    cout << endl;
+}
+
 
 
 
