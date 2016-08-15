@@ -25,6 +25,7 @@ void RemoveVector();
 void ForEach();
 void PrintElement(int &ele);
 void CountVector();
+void CopyVector();
 
 int main(int argc, const char * argv[])
 {
@@ -60,6 +61,9 @@ int main(int argc, const char * argv[])
 
     // count
     CountVector();
+
+    // copy
+    CopyVector();
 
 
 
@@ -271,6 +275,18 @@ void CountVector()
     cout << "某个值出现的次数为：" << num << endl;
 }
 
+void CopyVector()
+{
+    int arr[] = {2, 3, 4, 5, 6};
+    vector<int> myVector(arr, arr + sizeof(arr) / sizeof(int));
+
+    // 这里需要指定大小
+    vector<int> myVectorCopy(5);
+
+    copy(myVector.begin(), myVector.end(), myVectorCopy.begin());
+    cout << "拷贝后的序列为：";
+    PrintVector(myVectorCopy);
+}
 
 
 
