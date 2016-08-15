@@ -22,6 +22,8 @@ void SwapObject();
 void UniqueVector();
 void ReplaceVector();
 void RemoveVector();
+void ForEach();
+void PrintElement(int &ele);
 
 int main(int argc, const char * argv[])
 {
@@ -51,6 +53,9 @@ int main(int argc, const char * argv[])
 
     // remove
     RemoveVector();
+
+    // for-each
+    ForEach();
 
 
 
@@ -232,6 +237,25 @@ void RemoveVector()
     PrintVector(myVector);
 }
 
+// 遍历序列中的每个元素，然后去执行某个方法
+void ForEach()
+{
+    int array[] = {3, 5, 7, 9, 1};
+    vector<int> myVector(array, array + sizeof(array) / sizeof(int));
+
+    cout << "for-each之前的序列：";
+    PrintVector(myVector);
+
+    for_each(myVector.begin(), myVector.end(), PrintElement);
+    cout << "for-each之后的序列：";
+    PrintVector(myVector);
+}
+
+// 传引用，就可以改变原序列
+void PrintElement(int &ele)
+{
+    ele = ele * ele;
+}
 
 
 
