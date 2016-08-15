@@ -30,6 +30,7 @@ void TransformVector();
 int SquareVector(int num);
 void GenerateVector();
 void MoveVector();
+void FillVector();
 
 void Heap();
 
@@ -80,7 +81,11 @@ int main(int argc, const char * argv[])
     // heap
     Heap();
 
+    // move
     MoveVector();
+
+    // fill
+    FillVector();
 
 
 
@@ -369,6 +374,20 @@ void MoveVector()
     PrintVector(myVectorMove);
 }
 
+/**
+ *  vector的初始化可以用array，也可以直接用{}.
+ */
+void FillVector()
+{
+    vector<int> myVector{3, 4, 5, 6, 7};
+
+    cout << "初始的序列为：";
+    PrintVector(myVector);
+    // 数据全部填充为**
+    fill(myVector.begin(), myVector.end(), 99);
+    cout << "填充后的序列为：";
+    PrintVector(myVector);
+}
 
 
 
