@@ -26,6 +26,8 @@ void ForEach();
 void PrintElement(int &ele);
 void CountVector();
 void CopyVector();
+void TransformVector();
+int SquareVector(int num);
 
 int main(int argc, const char * argv[])
 {
@@ -64,6 +66,9 @@ int main(int argc, const char * argv[])
 
     // copy
     CopyVector();
+
+    // transform
+    TransformVector();
 
 
 
@@ -288,8 +293,23 @@ void CopyVector()
     PrintVector(myVectorCopy);
 }
 
+void TransformVector()
+{
+    int arr[] = {2, 3, 4, 5, 6};
+    vector<int> myVector(arr, arr + sizeof(arr) / sizeof(int));
 
+    vector<int> myVectorTransform(5);
 
+    // 第四个参数需要有返回值
+    transform(myVector.begin(), myVector.end(), myVectorTransform.begin(), SquareVector);
+    cout << "转换-拷贝后的序列为：";
+    PrintVector(myVectorTransform);
+}
+
+int SquareVector(int num)
+{
+    return num * num;
+}
 
 
 
