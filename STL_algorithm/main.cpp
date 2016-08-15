@@ -21,6 +21,7 @@ void MergeVector();
 void SwapObject();
 void UniqueVector();
 void ReplaceVector();
+void RemoveVector();
 
 int main(int argc, const char * argv[])
 {
@@ -47,6 +48,9 @@ int main(int argc, const char * argv[])
 
     // replace
     ReplaceVector();
+
+    // remove
+    RemoveVector();
 
 
 
@@ -209,6 +213,27 @@ void ReplaceVector()
     cout << "替换之后的序列：";
     PrintVector(myVector);
 }
+
+// 删除操作和去重操作是类似的，实际使用remove的时候，并没有删除那个元素，而是用后面的那个
+// 元素替代了想要删除的元素。最后要使用erase方法删除。
+// 但是只能删除第一次出现的那个数字，而第二个元素不可删除。
+void RemoveVector()
+{
+    int array[] = {1, 2, 3, 4, 5};
+    vector<int> myVector(array, array + sizeof(array) / sizeof(int));
+
+    cout << "删除元素前的序列：";
+    PrintVector(myVector);
+
+    vector<int>::iterator Iter = remove(myVector.begin(), myVector.end(), 4);
+    myVector.erase(Iter);
+
+    cout << "删除元素前的序列：";
+    PrintVector(myVector);
+}
+
+
+
 
 
 
