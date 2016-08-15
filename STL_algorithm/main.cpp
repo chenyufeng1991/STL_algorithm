@@ -16,6 +16,7 @@ void PrintVector(vector<int> v);
 void MaxAndMin();
 void SortAndReverse();
 void FindVector();
+void EqualVector();
 
 int main(int argc, const char * argv[])
 {
@@ -27,6 +28,9 @@ int main(int argc, const char * argv[])
 
     // find
     FindVector();
+
+    // equal
+    EqualVector();
 
 
 
@@ -101,6 +105,30 @@ void FindVector()
     }
 }
 
+void EqualVector()
+{
+    vector<int> myVector1;
+    myVector1.push_back(1);
+    myVector1.push_back(5);
+    myVector1.push_back(7);
+    myVector1.push_back(9);
+
+    vector<int> myVector2;
+    myVector2.push_back(1);
+    myVector2.push_back(5);
+    myVector2.push_back(7);
+    myVector2.push_back(9);
+
+    bool isEqual = equal(myVector1.begin(), myVector1.end(), myVector2.begin());
+    if (isEqual)
+    {
+        cout << "相等" << endl;
+    }
+    else
+    {
+        cout << "不相等" << endl;
+    }
+}
 
 
 
