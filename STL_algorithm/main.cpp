@@ -15,15 +15,18 @@ using namespace std;
 void PrintVector(vector<int> v);
 void MaxAndMin();
 void SortAndReverse();
+void FindVector();
 
 int main(int argc, const char * argv[])
 {
     // max，min
     MaxAndMin();
 
-    // find
+    // sort
     SortAndReverse();
 
+    // find
+    FindVector();
 
 
 
@@ -69,14 +72,34 @@ void SortAndReverse()
     PrintVector(myVector);
 
     sort(myVector.begin(), myVector.end());
-    cout << "升序排序前的序列：";
+    cout << "升序排序后的序列：";
     PrintVector(myVector);
 
     reverse(myVector.begin(), myVector.end());
-    cout << "降序排序前的序列：";
+    cout << "降序排序后的序列：";
     PrintVector(myVector);
 }
 
+void FindVector()
+{
+    vector<int> myVector;
+    myVector.push_back(2);
+    myVector.push_back(4);
+    myVector.push_back(6);
+    myVector.push_back(8);
+    myVector.push_back(0);
+
+    vector<int>::iterator vIterator;
+    vIterator = find(myVector.begin(), myVector.end(), 6);
+    if (vIterator == myVector.end())
+    {
+        cout << "未找到" << endl;
+    }
+    else
+    {
+        cout << "找到：" << *vIterator << endl;
+    }
+}
 
 
 
