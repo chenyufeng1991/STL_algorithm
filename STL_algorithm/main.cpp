@@ -19,6 +19,7 @@ void FindVector();
 void EqualVector();
 void MergeVector();
 void SwapObject();
+void UniqueVector();
 
 int main(int argc, const char * argv[])
 {
@@ -39,6 +40,9 @@ int main(int argc, const char * argv[])
 
     // swap
     SwapObject();
+
+    // unique
+    UniqueVector();
 
 
 
@@ -171,6 +175,19 @@ void SwapObject()
     cout << "i = " << i << ";j = " << j << endl;
 }
 
+// 去重的操作：sort-->unique-->erase
+// vector可以由数组进行初始化
+void UniqueVector()
+{
+    int array[] = {5, 3, 1, 3, 2, 5};
+    vector<int> vectorFromArray(array, array + sizeof(array) / sizeof(int));
+
+    sort(vectorFromArray.begin(), vectorFromArray.end());
+    vector<int>::iterator iter = unique(vectorFromArray.begin(), vectorFromArray.end());
+    vectorFromArray.erase(iter, vectorFromArray.end());
+
+    PrintVector(vectorFromArray);
+}
 
 
 
