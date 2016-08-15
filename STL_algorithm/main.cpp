@@ -30,6 +30,8 @@ void TransformVector();
 int SquareVector(int num);
 void GenerateVector();
 
+void Heap();
+
 int main(int argc, const char * argv[])
 {
     // max，min
@@ -73,6 +75,9 @@ int main(int argc, const char * argv[])
 
     // generate
     GenerateVector();
+
+    // heap
+    Heap();
 
 
 
@@ -323,6 +328,32 @@ void GenerateVector()
     PrintVector(myVector);
 }
 
+// 关于堆的操作
+void Heap()
+{
+    int arr[] = {3, 7, 9, 1, 0, 6};
+    vector<int> myVector(arr, arr + sizeof(arr) / sizeof(int));
+
+    // 建立一个最大堆,第三个参数less为最大堆，greater为最小堆；默认为最大堆；
+    make_heap(myVector.begin(), myVector.end(),less<int>());
+    PrintVector(myVector);
+
+    // 新添加一个元素在末尾，然后重新调整堆序。也就是把元素添加在底层vector的end处。
+    // 要先在容器中加入数据，再调用push_heap;
+    myVector.push_back(99);
+    push_heap(myVector.begin(), myVector.end());
+    PrintVector(myVector);
+
+    // 把堆顶元素取出来，放到数组或者是vector的末尾，用原来末尾元素去替代。
+    // 要先调用pop_heap,再到容器中删除数据；
+    pop_heap(myVector.begin(), myVector.end());
+    myVector.pop_back();
+    PrintVector(myVector);
+
+    // 排序之后就不是一个合法的堆了
+    sort_heap(myVector.begin(), myVector.end());
+    PrintVector(myVector);
+}
 
 
 
